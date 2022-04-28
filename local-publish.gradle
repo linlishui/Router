@@ -1,0 +1,14 @@
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri(rootProject.rootDir.absolutePath + '/local_repos'))
+            pom.project {
+                groupId "$aar_group_id"
+                artifactId "$aar_artifact_id"
+                version "$aar_version"
+            }
+        }
+    }
+}

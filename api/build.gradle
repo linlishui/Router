@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments += [ROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions { abortOnError false }
+}
+
+dependencies {
+    implementation deps.annotation
+
+    api project(path: ':router:annotation')
+}
